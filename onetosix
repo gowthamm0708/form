@@ -1,0 +1,192 @@
+1)a)
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+namespace ConsoleApplication6
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int n;
+            Console.WriteLine("Enter the ending range:");
+            n = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("All even numbers from 1 to {0} are ", n);
+            evenodd(2, n);
+            Console.WriteLine("\nAll odd numbers from 1 to {0} are ", n);
+            evenodd(1, n);
+            Console.WriteLine("\n");
+            return;
+        }
+        static void evenodd(int stval,int n)
+        {
+            if (stval > n)
+                return;
+            Console.Write("{0} ", stval);
+            evenodd(stval + 2, n);
+        }
+    }
+}
+
+OUTPUT:
+Enter the ending range:
+20
+All even numbers from 1 to 20 are
+2 4 6 8 10 12 14 16 18 20
+All odd numbers from 1 to 20 are
+1 3 5 7 9 11 13 15 17 19
+
+1.b)
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+namespace ConsoleApplication1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] arr1 = new int[10];
+            int n, i, j, tmp;
+            Console.Write("Enter number of elements: ");
+            n = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Enter the elements:\n", n);
+            for (i = 0; i < n; i++)
+            {
+                arr1[i] = Convert.ToInt32(Console.ReadLine());
+            }
+
+            for (i = 0; i < n; i++)
+            {
+                for (j = i + 1; j < n; j++)
+                {
+                    if (arr1[i] > arr1[j])
+                    {
+                        tmp = arr1[i];
+                        arr1[i] = arr1[j];
+                        arr1[j] = tmp;
+                    }
+                }
+            }
+            Console.Write("Elements in ascending order:\n");
+            for (i = 0; i < n; i++)
+            {
+                Console.Write("{0}  ", arr1[i]);
+            }
+            for (i = 0; i < n; i++)
+            {
+                for (j = i + 1; j < n; j++)
+                {
+                    if (arr1[i]<arr1[j])
+                    {
+                        tmp = arr1[i];
+                        arr1[i] = arr1[j];
+                        arr1[j] = tmp;
+                    }
+                }
+            }
+            Console.Write("\nElements in descending order:\n");
+            for (i = 0; i < n; i++)
+            {
+                Console.Write("{0}  ", arr1[i]);
+            }
+         Console.Write("\n");
+        }
+    }
+}
+
+Output:
+Enter number of elements: 5
+Enter the elements:
+34
+48
+5
+9
+20
+Elements in ascending order:
+5  9  20  34  48
+Elements in descending order:
+48  34  20  9  5
+
+
+
+
+
+
+2)
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+namespace ConsoleApplication5
+{
+    class Program
+    {
+        public static void area(int x,int y)
+        {
+            Console.WriteLine("Area=" + x * y);
+        }
+        public static void area(double x, double y)
+        {
+            Console.WriteLine("Area=" + x * y);
+        }
+        static void Main(string[] args)
+        {
+            area(10, 20);
+            area(2.5, 2.5);
+        }
+    }
+}
+
+OUTPUT:
+Area=200
+Area=6.25
+3)
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+namespace ConsoleApplication7
+{
+    class Box{
+        private double length;   
+        private double breadth;  
+        private double height;   
+        public double getVolume()
+        {
+            return length * breadth * height;
+        }
+        public void setLength(double len)
+        {
+            length = len;
+        }
+        public void setBreadth(double bre)
+        {
+            breadth = bre;
+        }
+        public void setHeight(double hei)
+        {
+            height = hei;
+        }
+        public static Box operator +(Box b, Box c)
+        {
+            Box box = new Box();
+            box.length = b.length + c.length;
+            box.breadth = b.breadth + c.breadth;
+            box.height = b.height + c.height;
+            return box;
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Box Box1 = new Box();   
+            Box Box2 = new Box();   
+            Box Box3 = new Box();   
